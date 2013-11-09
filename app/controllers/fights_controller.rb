@@ -14,6 +14,8 @@ class FightsController < ApplicationController
   # GET /fights/1.json
   def show
     @fight = Fight.find(params[:id])
+    @fighters = [@fight.fighter_one, @fight.fighter_two]
+    @pick = Pick.new
 
     respond_to do |format|
       format.html # show.html.erb

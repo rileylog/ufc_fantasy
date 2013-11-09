@@ -1,0 +1,15 @@
+<%= simple_form_for(@pick) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.association :fight %>
+    <%= f.association :winner, as: :radio_buttons%>
+    <%= f.input :outcome %>
+    <%= f.input :last_round %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

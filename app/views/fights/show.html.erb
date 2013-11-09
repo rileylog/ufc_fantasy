@@ -1,32 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Day of fight:</b>
-  <%= @fight.day_of_fight %>
-</p>
+
+
+
+  <h2><%= @fight.fighter_one.try(:full_name) %> <small>vs</small> <%= @fight.fighter_two.try(:full_name) %></h2>
 
 <p>
-  <b>Fighter One:</b>
-  <%= @fight.fighter_one.try(:full_name) %>
+  <%= @fight.day_of_fight.to_formatted_s(:long_ordinal) %>
 </p>
+<%= simple_form_for(@pick) do |f| %>
+  <%= f.input :fight_id, as: :hidden, input_html: {value: @fight.id} %>
+  <%= f.error_notification %>
 
-<p>
-  <b>Fighter Two:</b>
-  <%= @fight.fighter_two.try(:full_name) %>
-</p>
-<p>
-  <b>Winner:</b>
-  <%= @fight.winner.try(:full_name) %>
-</p>
-<p>
-  <b>Type decision:</b>
-  <%= @fight.outcome %>
-</p>
+  <div class="form-inputs">
+    <%= f.association :winner, as: :radio_buttons, collection: @fighters.collect {|fighter| [ fighter.full_name, fighter.id] } %>
+    <br />
+    <%= f.input :outcome, as: :radio_buttons, collection: ['TKO', 'Submission', 'Leg Sqeeze'] %>
+    <br />
+    <%= f.input :last_round %>
+  </div>
 
-<p>
-  <b>Last round:</b>
-  <%= @fight.last_round %>
-</p>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
 
 
 <%= link_to 'Edit', edit_fight_path(@fight) %> |

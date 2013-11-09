@@ -8,12 +8,19 @@
     <th>Winner</th>
     <th>Outcome</th>
     <th>Last round</th>
+    <th>My Pick</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @fights.each do |fight| %>
+  <% if pick = current_user.picks.where(fight_id:fight.id).first
+        contents = pick.winner.full_name 
+    else 
+        contents = link_to 'Make Pick', fight 
+    end %>
+
   <tr>
     <td><%= fight.day_of_fight %></td>
     <td><%= fight.fighter_one.try(:full_name) %></td>
@@ -21,7 +28,7 @@
     <td><%= fight.winner.try(:full_name) %></td>
     <td><%= fight.outcome %></td>
     <td><%= fight.last_round %></td>
-    <td><%= link_to 'Show', fight %></td>
+    <td><%=  contents %></td>
     <td><%= link_to 'Edit', edit_fight_path(fight) %></td>
     <td><%= link_to 'Destroy', fight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
