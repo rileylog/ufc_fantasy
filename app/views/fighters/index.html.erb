@@ -1,0 +1,43 @@
+<h1>Listing fighters</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Total fights</th>
+    <th>Wins</th>
+    <th>Losses</th>
+    <th>Draws</th>
+    <th>Knockouts</th>
+    <th>Submissions</th>
+    <th>Decisions</th>
+    <th>Height</th>
+    <th>Weight</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fighters.each do |fighter| %>
+  <tr>
+    <td><%= fighter.first_name %></td>
+    <td><%= fighter.last_name %></td>
+    <td><%= fighter.total_fights %></td>
+    <td><%= fighter.wins %></td>
+    <td><%= fighter.losses %></td>
+    <td><%= fighter.draws %></td>
+    <td><%= fighter.knockouts %></td>
+    <td><%= fighter.submissions %></td>
+    <td><%= fighter.decisions %></td>
+    <td><%= fighter.height %></td>
+    <td><%= fighter.weight %></td>
+    <td><%= link_to 'Show', fighter %></td>
+    <td><%= link_to 'Edit', edit_fighter_path(fighter) %></td>
+    <td><%= link_to 'Destroy', fighter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fighter', new_fighter_path %>

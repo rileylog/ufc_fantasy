@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Day of fight:</b>
+  <%= @fight.day_of_fight %>
+</p>
+
+<p>
+  <b>Fighter One:</b>
+  <%= @fight.fighter_one.try(:full_name) %>
+</p>
+
+<p>
+  <b>Fighter Two:</b>
+  <%= @fight.fighter_two.try(:full_name) %>
+</p>
+<p>
+  <b>Winner:</b>
+  <%= @fight.winner.try(:full_name) %>
+</p>
+<p>
+  <b>Type decision:</b>
+  <%= @fight.outcome %>
+</p>
+
+<p>
+  <b>Last round:</b>
+  <%= @fight.last_round %>
+</p>
+
+
+<%= link_to 'Edit', edit_fight_path(@fight) %> |
+<%= link_to 'Back', fights_path %>

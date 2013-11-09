@@ -1,0 +1,16 @@
+<%= simple_form_for(@fight) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :day_of_fight %>
+    <%= f.association :fighter_one, collection: @fighters.collect {|fighter| [ fighter.full_name, fighter.id] } %>
+    <%= f.association :fighter_two, collection: @fighters.collect {|fighter| [ fighter.full_name, fighter.id] } %>
+    <%= f.association :winner, collection: @fighters.collect {|fighter| [ fighter.full_name, fighter.id] } %>
+    <%= f.input :outcome, collection: ['TKO', 'Submission', 'Leg Sqeeze'] %>
+    <%= f.input :last_round %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

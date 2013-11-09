@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @fighter.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @fighter.last_name %>
+</p>
+
+<p>
+  <b>Total fights:</b>
+  <%= @fighter.total_fights %>
+</p>
+
+<p>
+  <b>Wins:</b>
+  <%= @fighter.wins %>
+</p>
+
+<p>
+  <b>Losses:</b>
+  <%= @fighter.losses %>
+</p>
+
+<p>
+  <b>Draws:</b>
+  <%= @fighter.draws %>
+</p>
+
+<p>
+  <b>Knockouts:</b>
+  <%= @fighter.knockouts %>
+</p>
+
+<p>
+  <b>Submissions:</b>
+  <%= @fighter.submissions %>
+</p>
+
+<p>
+  <b>Decisions:</b>
+  <%= @fighter.decisions %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%= @fighter.height %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @fighter.weight %>
+</p>
+
+
+<%= link_to 'Edit', edit_fighter_path(@fighter) %> |
+<%= link_to 'Back', fighters_path %>

@@ -11,7 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131109180853) do
+ActiveRecord::Schema.define(:version => 20131109194129) do
+
+  create_table "fighters", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "total_fights"
+    t.integer  "wins"
+    t.integer  "losses"
+    t.integer  "draws"
+    t.integer  "knockouts"
+    t.integer  "submissions"
+    t.integer  "decisions"
+    t.integer  "height"
+    t.integer  "weight"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "fights", :force => true do |t|
+    t.datetime "day_of_fight"
+    t.integer  "fighter_one_id"
+    t.integer  "fighter_two_id"
+    t.integer  "winner_id"
+    t.string   "outcome"
+    t.integer  "last_round"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

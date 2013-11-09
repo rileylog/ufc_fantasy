@@ -1,4 +1,10 @@
 UfcFantasy::Application.routes.draw do
+  resources :fights
+
+
+  resources :fighters
+
+
   authenticated :user do
     root :to => 'home#index'
   end
