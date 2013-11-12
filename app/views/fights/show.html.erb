@@ -15,7 +15,7 @@
   <div class="form-inputs">
     <%= f.association :winner, as: :radio_buttons, collection: @fighters.collect {|fighter| [ fighter.full_name, fighter.id] } %>
     <br />
-    <%= f.input :outcome, as: :radio_buttons, collection: ['TKO', 'Submission', 'Leg Sqeeze'] %>
+    <%= f.input :outcome, as: :radio_buttons, collection: ['Knocked the F@#$ out', 'Leg Sqeeze', 'Cant finish'] %>
     <br />
     <%= f.input :last_round %>
   </div>
